@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="2.0"    xsi:noNamespaceSchemaLocation="vast.xsd"        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Ad                id="Ht5eo962qGufqJxPTLMl.BEmDrx8tbyjS3jjbXcoF"><InLine><AdSystem                version="1.0">PlayTime</AdSystem><Error><![CDATA[https://stats-tm.everesttech.net/stats/1/playererror?sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&cpKey=Ht5eo962qGufqJxPTLMl&mpKey=ub6XQsHxufo7uMUIEOC1&adKey=BEmDrx8tbyjS3jjbXcoF&service=bidder&errorcode=[ERRORCODE]&s=H4sIAAAAAAAAAAGwAE__K6BPcEBN6tKkfgLaXhIf8Fz96EyAJytDktPlZ01ylBStnbxqilaYS3kW28HRs7u21vzORJ1BUJWBeBioEH6migOgaeUNU-K2trQ9GlNgoHCRsSa6V63cVYfGYfnHJWuwQ-WJnczKmzZV1UDwd5YhBsrRlgt2ozAtAXQcNRsjc2aOp5Vrqv2rt7yOOvwnHk3bhvnqng-KJPZfWqWAgNacuVOcjQ8Boqa45DnyNMxniHCFdvrrsAAAAA]]></Error><Impression id="TM_RTB_BID"><![CDATA[https://rtb-lb-event-iad-1a-tm.everesttech.net/rtb/e.png?e=win&aid=f6f06fd1cf1c11e9aba01b8a6c320001.1&cp=2174679&slot=1&x_price=1&ets=1567606096242&tz=America%2FNew_York&source=spotx&country=US&region=CO&mc=48&ap=0&ut=0&vis=UNKNOWN&site=f5aisANK7WNQyBFj1dVR&bp=70000000&curr=USD&exr=1.0&fid=ub6XQsHxufo7uMUIEOC1&c=4117558586&ccurr=USD&cuxr=1.0&a=458148&ca=695088&st=INSTREAM%7CPREROLL_SURVEY%7CINSTREAM_VPAID2_DESKTOP%7CVPAID_JS&sh=480&sw=640&rid=4184&mp=161&psk=f5aisANK7WNQyBFj1dVR&cfc=0&cfci=0&dur=30&cityid=-1&metroid=53&countryid=232&postalid=35983&v=1&auth=ucfqZRnfMtWeZgsEmmfIKgPieB4&x_r=lTxM8A]]></Impression><Impression                    id="TM_BLANK_IMPRESSION"><![CDATA[https://playtime-tm.everesttech.net/audit/e.png?event=blank]]></Impression><AdTitle>ServiceNow Brand_2019_Q3_CROSS_Adobe_(:15)_DCM_AMS - US_ROS_CNBC__PHD</AdTitle><Creatives><Creative                                id="BEmDrx8tbyjS3jjbXcoF"><Linear><AdParameters><![CDATA[{"tm_feed":{"page_url":"https://www.cnbc.com/2019/09/03/trump-says-us-doing-very-well-in-our-negotiations-with-china.html","conn":"unknown","mpKey":"ub6XQsHxufo7uMUIEOC1","tmCampaignIdNum":695088,"iasMon":"F","adParts":[{"sequence":1,"assets":[{"mimeType":"image/jpeg","trackAsAutoplay":"T","type":"promoted_video","layer":"0","timer":15,"ageGate":"null","id":"13465570","height":"300","inplayCall":"bannerClicks","videoDuration":15,"framework":"vpaid","pvId":"l9QfK14y6Oo1XaeoTqt0","width":"400","preserveAspectRatio":"T","x":"center","y":"center","showControls":"F","resourceType":"static"},{"mimeType":"text/html","type":"companion","layer":"1","ageGate":"null","id":"13465572","height":"600","inplayCall":"bannerClicks","width":"300","detail":"<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+    var shimSessionId = "f6f06fd1cf1c11e9aba01b8a6c320001.1";
+    var shimWidth =  "${ASSET_WIDTH}";
+    var shimHeight =  "${ASSET_HEIGHT}";
+    var shimSignature = shimSessionId + '.' + shimWidth + '.' + shimHeight;
+    var companion;
+    var matched = false;
+
+    var shimReady = function(){
+        shimStatus = "ready";
+    };
+
+    var receiveMessage = function(event){
+        var tellAdUnit = function(status){
+            var rand = Math.floor(Math.random()*1000000);
+            event.source.postMessage({from:"shim", signature:shimSignature, status:status, rand:rand}, "*");
+        };
+        companion = event.data;
+        if ( !matched && companion.signature == shimSignature ){
+            matched == true;
+            tellAdUnit("matched");
+            removeEvent( window, "message", receiveMessage);
+            try {
+                switch (companion.resourceType) {
+                    case 'HTMLResource':
+                        document.body.innerHTML = unescape(companion.resource);
+                        sendViewPixels();
+                        break;
+                    case 'IFrameResource':
+                        var iframe = appendElementSrc("iframe", companion.resource, sendViewPixels);
+                        iframe.width = companion.width;
+                        iframe.height = companion.height;
+                        iframe.frameborder = "0";
+                        iframe.scrolling = "no";
+                        iframe.marginheight = "0";
+                        iframe.marginwidth = "0";
+                        iframe.style = "border: 0px; margin: 0px;";
+                        break;
+                    case 'StaticResource':
+                        var type = companion.mimeType.toLowerCase().split("/");
+                        switch (type[0]) {
+                            case "image" :
+                                var img = appendElementSrc("img", companion.resource, sendViewPixels);
+                                img.width = shimWidth;
+                                img.height = shimHeight;
+                                img.onclick = performClickThru;
+                                break;
+                            case "application" :
+                                switch (type[1]) {
+                                    case "x-javascript":
+                                        appendElementSrc("script", companion.resource, sendViewPixels);
+                                        break;
+                                    case "x-shockwave-flash":
+                                        appendElementSrc("script", "https://playtime.tubemogul.com/flash/swfobject.js", loadSwf);
+                                        break;
+                                    default:
+                                        console.log("Unrecognized StaticResource mimeType : " + companion.mimeType);
+                                        break;
+                                }
+                                break;
+                            default :
+                                break;
+                        }
+                    default :
+                        break;
+                }
+                tellAdUnit("loaded");
+            }catch(e){
+                // Ad unit may send a better matching companion
+                tellAdUnit("failed");
+                addEvent( window, "message", receiveMessage);
+                matched == false;
+                shimStatus = "ready";
+            }
+        }
+    };
+
+    function performClickThru(){
+        var win = window.open(companion.clickThrough, '_blank');
+        win.focus();
+    }
+
+    function sendViewPixels(){
+        for (var pixel in companion.creativeView){
+            appendElementSrc("pixel", companion.creativeView[pixel]);
+        }
+        appendElementSrc("pixel","${PIXEL_COMP_IMP}");
+    }
+
+    function appendElementSrc(el_type, src, onload){
+        var el;
+        if (el_type == "pixel") {
+            el = document.createElement("img");
+            el.width = el.height = 1;
+        }else {
+            el = document.createElement(el_type);
+        }
+        el.src = src;
+        if (onload != undefined){
+            el.onload = onload;
+        }
+        document.body.appendChild(el);
+        return el;
+    }
+
+    function loadSwf(){
+        var strWidth = shimWidth.toString();
+        var strHeight = shimHeight.toString();
+        var random = Math.floor(Math.random()*100000);
+        var div = document.createElement('div');
+        var divId = shimSignature + "." + random; //Will be replaced by swfObject-created <object> tag with same ID
+        div.id = divId;
+        document.body.appendChild(div);
+        var flashvars = {};
+        if (companion.apiFramework == "clickTAG" ) {
+            flashvars = {clickTAG:companion.clickThrough};
+        }
+
+        if (companion.apiFramework.toLowerCase() == "flashvars" && companion.adParameters){
+            // ToDo: FTSO .. How are adParameters formatted as flashvars? json? qparams? is xml a valid format for flashvars?
+            // ToDo:      .. or is the entire adParams string meant to be passed in as a single flashvar?
+            // ToDo:      .. If so with what property name? 'adParameters' ? .. and let the swf decode it?
+        }
+        var params = {
+            wmode: "transparent",
+            allowfullscreen: "true",
+            allowscriptaccess: "always"
+        };
+        swfobject.embedSWF(companion.resource, divId, strWidth, strHeight, "9.0.0","https://playtime.tubemogul.com/flash/expressInstall.swf", flashvars, params);
+        sendViewPixels();
+    }
+
+    // More Cross Browser fun  ... ( Come back Flash! ... All is forgiven :) )
+    function addEvent( obj, type, fn ) {
+        if ( obj.attachEvent ) {
+            obj['e'+type+fn] = fn;
+            obj[type+fn] = function(){obj['e'+type+fn]( window.event );};
+            obj.attachEvent( 'on'+type, obj[type+fn] );
+        } else
+            obj.addEventListener( type, fn, false );
+    }
+    function removeEvent( obj, type, fn ) {
+        if ( obj.detachEvent ) {
+            obj.detachEvent( 'on'+type, obj[type+fn] );
+            obj[type+fn] = null;
+        } else
+            obj.removeEventListener( type, fn, false );
+    }
+
+    addEvent( window, "message", receiveMessage);
+</script>
+</body>
+</html>","resourceType":"3rd_party_html"},{"mimeType":"text/html","type":"companion","layer":"1","ageGate":"null","id":"13465573","height":"250","inplayCall":"bannerClicks","width":"300","detail":"<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+    var shimSessionId = "f6f06fd1cf1c11e9aba01b8a6c320001.1";
+    var shimWidth =  "${ASSET_WIDTH}";
+    var shimHeight =  "${ASSET_HEIGHT}";
+    var shimSignature = shimSessionId + '.' + shimWidth + '.' + shimHeight;
+    var companion;
+    var matched = false;
+
+    var shimReady = function(){
+        shimStatus = "ready";
+    };
+
+    var receiveMessage = function(event){
+        var tellAdUnit = function(status){
+            var rand = Math.floor(Math.random()*1000000);
+            event.source.postMessage({from:"shim", signature:shimSignature, status:status, rand:rand}, "*");
+        };
+        companion = event.data;
+        if ( !matched && companion.signature == shimSignature ){
+            matched == true;
+            tellAdUnit("matched");
+            removeEvent( window, "message", receiveMessage);
+            try {
+                switch (companion.resourceType) {
+                    case 'HTMLResource':
+                        document.body.innerHTML = unescape(companion.resource);
+                        sendViewPixels();
+                        break;
+                    case 'IFrameResource':
+                        var iframe = appendElementSrc("iframe", companion.resource, sendViewPixels);
+                        iframe.width = companion.width;
+                        iframe.height = companion.height;
+                        iframe.frameborder = "0";
+                        iframe.scrolling = "no";
+                        iframe.marginheight = "0";
+                        iframe.marginwidth = "0";
+                        iframe.style = "border: 0px; margin: 0px;";
+                        break;
+                    case 'StaticResource':
+                        var type = companion.mimeType.toLowerCase().split("/");
+                        switch (type[0]) {
+                            case "image" :
+                                var img = appendElementSrc("img", companion.resource, sendViewPixels);
+                                img.width = shimWidth;
+                                img.height = shimHeight;
+                                img.onclick = performClickThru;
+                                break;
+                            case "application" :
+                                switch (type[1]) {
+                                    case "x-javascript":
+                                        appendElementSrc("script", companion.resource, sendViewPixels);
+                                        break;
+                                    case "x-shockwave-flash":
+                                        appendElementSrc("script", "https://playtime.tubemogul.com/flash/swfobject.js", loadSwf);
+                                        break;
+                                    default:
+                                        console.log("Unrecognized StaticResource mimeType : " + companion.mimeType);
+                                        break;
+                                }
+                                break;
+                            default :
+                                break;
+                        }
+                    default :
+                        break;
+                }
+                tellAdUnit("loaded");
+            }catch(e){
+                // Ad unit may send a better matching companion
+                tellAdUnit("failed");
+                addEvent( window, "message", receiveMessage);
+                matched == false;
+                shimStatus = "ready";
+            }
+        }
+    };
+
+    function performClickThru(){
+        var win = window.open(companion.clickThrough, '_blank');
+        win.focus();
+    }
+
+    function sendViewPixels(){
+        for (var pixel in companion.creativeView){
+            appendElementSrc("pixel", companion.creativeView[pixel]);
+        }
+        appendElementSrc("pixel","${PIXEL_COMP_IMP}");
+    }
+
+    function appendElementSrc(el_type, src, onload){
+        var el;
+        if (el_type == "pixel") {
+            el = document.createElement("img");
+            el.width = el.height = 1;
+        }else {
+            el = document.createElement(el_type);
+        }
+        el.src = src;
+        if (onload != undefined){
+            el.onload = onload;
+        }
+        document.body.appendChild(el);
+        return el;
+    }
+
+    function loadSwf(){
+        var strWidth = shimWidth.toString();
+        var strHeight = shimHeight.toString();
+        var random = Math.floor(Math.random()*100000);
+        var div = document.createElement('div');
+        var divId = shimSignature + "." + random; //Will be replaced by swfObject-created <object> tag with same ID
+        div.id = divId;
+        document.body.appendChild(div);
+        var flashvars = {};
+        if (companion.apiFramework == "clickTAG" ) {
+            flashvars = {clickTAG:companion.clickThrough};
+        }
+
+        if (companion.apiFramework.toLowerCase() == "flashvars" && companion.adParameters){
+            // ToDo: FTSO .. How are adParameters formatted as flashvars? json? qparams? is xml a valid format for flashvars?
+            // ToDo:      .. or is the entire adParams string meant to be passed in as a single flashvar?
+            // ToDo:      .. If so with what property name? 'adParameters' ? .. and let the swf decode it?
+        }
+        var params = {
+            wmode: "transparent",
+            allowfullscreen: "true",
+            allowscriptaccess: "always"
+        };
+        swfobject.embedSWF(companion.resource, divId, strWidth, strHeight, "9.0.0","https://playtime.tubemogul.com/flash/expressInstall.swf", flashvars, params);
+        sendViewPixels();
+    }
+
+    // More Cross Browser fun  ... ( Come back Flash! ... All is forgiven :) )
+    function addEvent( obj, type, fn ) {
+        if ( obj.attachEvent ) {
+            obj['e'+type+fn] = fn;
+            obj[type+fn] = function(){obj['e'+type+fn]( window.event );};
+            obj.attachEvent( 'on'+type, obj[type+fn] );
+        } else
+            obj.addEventListener( type, fn, false );
+    }
+    function removeEvent( obj, type, fn ) {
+        if ( obj.detachEvent ) {
+            obj.detachEvent( 'on'+type, obj[type+fn] );
+            obj[type+fn] = null;
+        } else
+            obj.removeEventListener( type, fn, false );
+    }
+
+    addEvent( window, "message", receiveMessage);
+</script>
+</body>
+</html>","resourceType":"3rd_party_html"},{"mimeType":"text/html","type":"companion","layer":"1","ageGate":"null","id":"13465574","height":"60","inplayCall":"bannerClicks","width":"300","detail":"<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+    var shimSessionId = "f6f06fd1cf1c11e9aba01b8a6c320001.1";
+    var shimWidth =  "${ASSET_WIDTH}";
+    var shimHeight =  "${ASSET_HEIGHT}";
+    var shimSignature = shimSessionId + '.' + shimWidth + '.' + shimHeight;
+    var companion;
+    var matched = false;
+
+    var shimReady = function(){
+        shimStatus = "ready";
+    };
+
+    var receiveMessage = function(event){
+        var tellAdUnit = function(status){
+            var rand = Math.floor(Math.random()*1000000);
+            event.source.postMessage({from:"shim", signature:shimSignature, status:status, rand:rand}, "*");
+        };
+        companion = event.data;
+        if ( !matched && companion.signature == shimSignature ){
+            matched == true;
+            tellAdUnit("matched");
+            removeEvent( window, "message", receiveMessage);
+            try {
+                switch (companion.resourceType) {
+                    case 'HTMLResource':
+                        document.body.innerHTML = unescape(companion.resource);
+                        sendViewPixels();
+                        break;
+                    case 'IFrameResource':
+                        var iframe = appendElementSrc("iframe", companion.resource, sendViewPixels);
+                        iframe.width = companion.width;
+                        iframe.height = companion.height;
+                        iframe.frameborder = "0";
+                        iframe.scrolling = "no";
+                        iframe.marginheight = "0";
+                        iframe.marginwidth = "0";
+                        iframe.style = "border: 0px; margin: 0px;";
+                        break;
+                    case 'StaticResource':
+                        var type = companion.mimeType.toLowerCase().split("/");
+                        switch (type[0]) {
+                            case "image" :
+                                var img = appendElementSrc("img", companion.resource, sendViewPixels);
+                                img.width = shimWidth;
+                                img.height = shimHeight;
+                                img.onclick = performClickThru;
+                                break;
+                            case "application" :
+                                switch (type[1]) {
+                                    case "x-javascript":
+                                        appendElementSrc("script", companion.resource, sendViewPixels);
+                                        break;
+                                    case "x-shockwave-flash":
+                                        appendElementSrc("script", "https://playtime.tubemogul.com/flash/swfobject.js", loadSwf);
+                                        break;
+                                    default:
+                                        console.log("Unrecognized StaticResource mimeType : " + companion.mimeType);
+                                        break;
+                                }
+                                break;
+                            default :
+                                break;
+                        }
+                    default :
+                        break;
+                }
+                tellAdUnit("loaded");
+            }catch(e){
+                // Ad unit may send a better matching companion
+                tellAdUnit("failed");
+                addEvent( window, "message", receiveMessage);
+                matched == false;
+                shimStatus = "ready";
+            }
+        }
+    };
+
+    function performClickThru(){
+        var win = window.open(companion.clickThrough, '_blank');
+        win.focus();
+    }
+
+    function sendViewPixels(){
+        for (var pixel in companion.creativeView){
+            appendElementSrc("pixel", companion.creativeView[pixel]);
+        }
+        appendElementSrc("pixel","${PIXEL_COMP_IMP}");
+    }
+
+    function appendElementSrc(el_type, src, onload){
+        var el;
+        if (el_type == "pixel") {
+            el = document.createElement("img");
+            el.width = el.height = 1;
+        }else {
+            el = document.createElement(el_type);
+        }
+        el.src = src;
+        if (onload != undefined){
+            el.onload = onload;
+        }
+        document.body.appendChild(el);
+        return el;
+    }
+
+    function loadSwf(){
+        var strWidth = shimWidth.toString();
+        var strHeight = shimHeight.toString();
+        var random = Math.floor(Math.random()*100000);
+        var div = document.createElement('div');
+        var divId = shimSignature + "." + random; //Will be replaced by swfObject-created <object> tag with same ID
+        div.id = divId;
+        document.body.appendChild(div);
+        var flashvars = {};
+        if (companion.apiFramework == "clickTAG" ) {
+            flashvars = {clickTAG:companion.clickThrough};
+        }
+
+        if (companion.apiFramework.toLowerCase() == "flashvars" && companion.adParameters){
+            // ToDo: FTSO .. How are adParameters formatted as flashvars? json? qparams? is xml a valid format for flashvars?
+            // ToDo:      .. or is the entire adParams string meant to be passed in as a single flashvar?
+            // ToDo:      .. If so with what property name? 'adParameters' ? .. and let the swf decode it?
+        }
+        var params = {
+            wmode: "transparent",
+            allowfullscreen: "true",
+            allowscriptaccess: "always"
+        };
+        swfobject.embedSWF(companion.resource, divId, strWidth, strHeight, "9.0.0","https://playtime.tubemogul.com/flash/expressInstall.swf", flashvars, params);
+        sendViewPixels();
+    }
+
+    // More Cross Browser fun  ... ( Come back Flash! ... All is forgiven :) )
+    function addEvent( obj, type, fn ) {
+        if ( obj.attachEvent ) {
+            obj['e'+type+fn] = fn;
+            obj[type+fn] = function(){obj['e'+type+fn]( window.event );};
+            obj.attachEvent( 'on'+type, obj[type+fn] );
+        } else
+            obj.addEventListener( type, fn, false );
+    }
+    function removeEvent( obj, type, fn ) {
+        if ( obj.detachEvent ) {
+            obj.detachEvent( 'on'+type, obj[type+fn] );
+            obj[type+fn] = null;
+        } else
+            obj.removeEventListener( type, fn, false );
+    }
+
+    addEvent( window, "message", receiveMessage);
+</script>
+</body>
+</html>","resourceType":"3rd_party_html"},{"mimeType":"text/html","type":"companion","layer":"1","ageGate":"null","id":"13465575","height":"90","inplayCall":"bannerClicks","width":"728","detail":"<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+    var shimSessionId = "f6f06fd1cf1c11e9aba01b8a6c320001.1";
+    var shimWidth =  "${ASSET_WIDTH}";
+    var shimHeight =  "${ASSET_HEIGHT}";
+    var shimSignature = shimSessionId + '.' + shimWidth + '.' + shimHeight;
+    var companion;
+    var matched = false;
+
+    var shimReady = function(){
+        shimStatus = "ready";
+    };
+
+    var receiveMessage = function(event){
+        var tellAdUnit = function(status){
+            var rand = Math.floor(Math.random()*1000000);
+            event.source.postMessage({from:"shim", signature:shimSignature, status:status, rand:rand}, "*");
+        };
+        companion = event.data;
+        if ( !matched && companion.signature == shimSignature ){
+            matched == true;
+            tellAdUnit("matched");
+            removeEvent( window, "message", receiveMessage);
+            try {
+                switch (companion.resourceType) {
+                    case 'HTMLResource':
+                        document.body.innerHTML = unescape(companion.resource);
+                        sendViewPixels();
+                        break;
+                    case 'IFrameResource':
+                        var iframe = appendElementSrc("iframe", companion.resource, sendViewPixels);
+                        iframe.width = companion.width;
+                        iframe.height = companion.height;
+                        iframe.frameborder = "0";
+                        iframe.scrolling = "no";
+                        iframe.marginheight = "0";
+                        iframe.marginwidth = "0";
+                        iframe.style = "border: 0px; margin: 0px;";
+                        break;
+                    case 'StaticResource':
+                        var type = companion.mimeType.toLowerCase().split("/");
+                        switch (type[0]) {
+                            case "image" :
+                                var img = appendElementSrc("img", companion.resource, sendViewPixels);
+                                img.width = shimWidth;
+                                img.height = shimHeight;
+                                img.onclick = performClickThru;
+                                break;
+                            case "application" :
+                                switch (type[1]) {
+                                    case "x-javascript":
+                                        appendElementSrc("script", companion.resource, sendViewPixels);
+                                        break;
+                                    case "x-shockwave-flash":
+                                        appendElementSrc("script", "https://playtime.tubemogul.com/flash/swfobject.js", loadSwf);
+                                        break;
+                                    default:
+                                        console.log("Unrecognized StaticResource mimeType : " + companion.mimeType);
+                                        break;
+                                }
+                                break;
+                            default :
+                                break;
+                        }
+                    default :
+                        break;
+                }
+                tellAdUnit("loaded");
+            }catch(e){
+                // Ad unit may send a better matching companion
+                tellAdUnit("failed");
+                addEvent( window, "message", receiveMessage);
+                matched == false;
+                shimStatus = "ready";
+            }
+        }
+    };
+
+    function performClickThru(){
+        var win = window.open(companion.clickThrough, '_blank');
+        win.focus();
+    }
+
+    function sendViewPixels(){
+        for (var pixel in companion.creativeView){
+            appendElementSrc("pixel", companion.creativeView[pixel]);
+        }
+        appendElementSrc("pixel","${PIXEL_COMP_IMP}");
+    }
+
+    function appendElementSrc(el_type, src, onload){
+        var el;
+        if (el_type == "pixel") {
+            el = document.createElement("img");
+            el.width = el.height = 1;
+        }else {
+            el = document.createElement(el_type);
+        }
+        el.src = src;
+        if (onload != undefined){
+            el.onload = onload;
+        }
+        document.body.appendChild(el);
+        return el;
+    }
+
+    function loadSwf(){
+        var strWidth = shimWidth.toString();
+        var strHeight = shimHeight.toString();
+        var random = Math.floor(Math.random()*100000);
+        var div = document.createElement('div');
+        var divId = shimSignature + "." + random; //Will be replaced by swfObject-created <object> tag with same ID
+        div.id = divId;
+        document.body.appendChild(div);
+        var flashvars = {};
+        if (companion.apiFramework == "clickTAG" ) {
+            flashvars = {clickTAG:companion.clickThrough};
+        }
+
+        if (companion.apiFramework.toLowerCase() == "flashvars" && companion.adParameters){
+            // ToDo: FTSO .. How are adParameters formatted as flashvars? json? qparams? is xml a valid format for flashvars?
+            // ToDo:      .. or is the entire adParams string meant to be passed in as a single flashvar?
+            // ToDo:      .. If so with what property name? 'adParameters' ? .. and let the swf decode it?
+        }
+        var params = {
+            wmode: "transparent",
+            allowfullscreen: "true",
+            allowscriptaccess: "always"
+        };
+        swfobject.embedSWF(companion.resource, divId, strWidth, strHeight, "9.0.0","https://playtime.tubemogul.com/flash/expressInstall.swf", flashvars, params);
+        sendViewPixels();
+    }
+
+    // More Cross Browser fun  ... ( Come back Flash! ... All is forgiven :) )
+    function addEvent( obj, type, fn ) {
+        if ( obj.attachEvent ) {
+            obj['e'+type+fn] = fn;
+            obj[type+fn] = function(){obj['e'+type+fn]( window.event );};
+            obj.attachEvent( 'on'+type, obj[type+fn] );
+        } else
+            obj.addEventListener( type, fn, false );
+    }
+    function removeEvent( obj, type, fn ) {
+        if ( obj.detachEvent ) {
+            obj.detachEvent( 'on'+type, obj[type+fn] );
+            obj[type+fn] = null;
+        } else
+            obj.removeEventListener( type, fn, false );
+    }
+
+    addEvent( window, "message", receiveMessage);
+</script>
+</body>
+</html>","resourceType":"3rd_party_html"}],"width":"100%","type":"player","height":"100%"}],"sellerId":"111853","cpKey":"Ht5eo962qGufqJxPTLMl","feedId":"ub6XQsHxufo7uMUIEOC1","zone":"tm-iad-1a","price":"1","campaignKey":"IsY5a8ZXwAEdcHZqdrLm","impid":"cKWOTc8dEemQPPoWPsjKeg","height":300,"thirdPartyFiresImp":"f","viewabilityStandard":"MRC","displayType":"vast_proxy","pixels":[{"id":"1076770","trigger":"Impression","detail":"https://rtd-tm.everesttech.net/upi/?sid=Mhb08q4amglk9pyHdVQf","type":"Flash","detail_ssl":"https://rtd-tm.everesttech.net/upi/?sid=Mhb08q4amglk9pyHdVQf"}],"bidderGroup":"rtb-bidder-first","adKey":"BEmDrx8tbyjS3jjbXcoF","assetBaseURL":"//playtime.tubemogul.com","tmSiteIdNum":"514931","tmPlacementIdNum":2174679,"preview":false,"adpod":"f","statsPixels":[{"id":0,"trigger":"Impression","detail":"https://statsf-tm.everesttech.net/stats/1/imp?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&ssb=F&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":1,"trigger":"Vimp","detail":"https://statsf-tm.everesttech.net/stats/1/vimp?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":2,"trigger":"View","detail":"https://statsf-tm.everesttech.net/stats/1/view?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&pvId=1&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":3,"trigger":"ClickThrough","detail":"https://statsf-tm.everesttech.net/stats/1/ct?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&stch_id=f6f0a55e-cf1c-11e9-aba0-1b8a6c320001&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":4,"trigger":"Complete25","detail":"https://statsf-tm.everesttech.net/stats/1/pct25?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&pvId=1&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":5,"trigger":"Complete50","detail":"https://statsf-tm.everesttech.net/stats/1/pct50?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&pvId=1&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":6,"trigger":"Complete75","detail":"https://statsf-tm.everesttech.net/stats/1/pct75?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&pvId=1&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":7,"trigger":"Completion","detail":"https://statsf-tm.everesttech.net/stats/1/pct100?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&pvId=1&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":8,"trigger":"SurveyImpression","detail":"https://statsf-tm.everesttech.net/stats/1/svyimp?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":9,"trigger":"SurveyStart","detail":"https://statsf-tm.everesttech.net/stats/1/svystart?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":10,"trigger":"SurveyComplete","detail":"https://statsf-tm.everesttech.net/stats/1/svycomp?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":11,"trigger":"SurveyResponse","detail":"https://statsf-tm.everesttech.net/stats/1/svyresp?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":12,"trigger":"reject","detail":"https://statsf-tm.everesttech.net/stats/1/reject?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&p2=https://www.cnbc.com/2019/09/03/trump-says-us-doing-very-well-in-our-negotiations-with-china.html&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&ssb=T&adKey=BEmDrx8tbyjS3jjbXcoF&did=&feedId=ub6XQsHxufo7uMUIEOC1&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&msg=Rejected%20Ad&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":13,"trigger":"eng","detail":"https://statsf-tm.everesttech.net/stats/1/eng?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"},{"id":14,"trigger":"TechTracker","detail":"https://statsf-tm.everesttech.net/stats/1/tt?auth=53a5cb500da5765b248a1632bafd613b&seller_id=111853&cpKey=Ht5eo962qGufqJxPTLMl&rt=HTML5&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&env=site&didtype=UNK&vinst=t&date=1567606096244&psId=f5aisANK7WNQyBFj1dVR&price=1&conn=unknown&ssb=F&adKey=BEmDrx8tbyjS3jjbXcoF&did=&mpKey=ub6XQsHxufo7uMUIEOC1&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&s=H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","type":"stats"}],"session":{"sessId":"f6f06fd1cf1c11e9aba01b8a6c320001.1"},"closeButtonDelay":0,"bi":"B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo","psId":"f5aisANK7WNQyBFj1dVR","bt":false,"tmFeedIdNum":151584,"adClass":"interactive_preroll","tmAdKey":"BEmDrx8tbyjS3jjbXcoF","wmode":"window","adseq":"1","moatEnabled":"F","tmPlacementKey":"Ht5eo962qGufqJxPTLMl","tmAdIdNum":4117558586,"cd":{"fbd":{"ssb":"F","pd":"cnbc.com","aburl":""}},"adPluginURL":"https://playtime.tubemogul.com/ud/prod/ad_plugins/release/vpaidjsproxy-20190822.js","bidderHost":"rtb-bidder-first12","didtype":"UNK","env":"site","statsBaseURL":"statsf-tm.everesttech.net/stats/1","s":"H4sIAAAAAAAAAAGwAE__oJbzdSbqBagklmxwC7oxZqq7ZlXdZl0OiLTZhLVfdf8J_ZlWPBDi57hBNApheGwxy1vh4XQxHSugvbIJCsNlPx-uVYE4uyphTYwUBffA_ma-UECpm6vbxhVLiAqYW9A4lFXFnA_eBciDuA4AiwzARXoZNF24CxixfYv1xUYjvlCWiF-F3T1Nl9fezIGTKetovQQ0QGahX7y4hKcvCrDg3ISsmrB2eS9_owPlnyxTigZtm9yesAAAAA","adUnitFireTechPixel":"t","width":400}}]]></AdParameters><Duration>00:00:15</Duration><MediaFiles><MediaFile                                delivery="progressive"                                type="application/javascript"                                width="400" height="300" bitrate="500"                    apiFramework="VPAID"><![CDATA[https://playtime.tubemogul.com/ud/prod/ad_plugins/release/vpaidjsproxy-20190822.js?feedURL=https%3A%2F%2Fasf-tm.everesttech.net%2Ffeed%2Fplacement.js%3Fid%3Dub6XQsHxufo7uMUIEOC1%26tm_auction_id%3Df6f06fd1cf1c11e9aba01b8a6c320001.1%26price%3D1%26bi%3DB08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo%26did%3D%26didtype%3DUNK%26barefeed%3DT%26rand%3D1732811049%26seller_id%3D111853%26tm_user_ip%3Db32d18c6ef589fb817bc591d94144379%26expaId%3D%26q%3DH4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*%26psId%3Df5aisANK7WNQyBFj1dVR%26page_url%3Dhttps%3A%2F%2Fwww.cnbc.com%2F2019%2F09%2F03%2Ftrump-says-us-doing-very-well-in-our-negotiations-with-china.html&cpKey=Ht5eo962qGufqJxPTLMl&mpKey=ub6XQsHxufo7uMUIEOC1&adKey=BEmDrx8tbyjS3jjbXcoF&framework=vpaid&psId=f5aisANK7WNQyBFj1dVR&cd=%7B%22zip%22%3A%2280021%22%2C%22fbd%22%3A%7B%22ssb%22%3A%22F%22%2C%22psb%22%3A%22F%22%2C%22pd%22%3A%22cnbc.com%22%2C%22mpw%22%3A%22640%22%2C%22mph%22%3A%22480%22%2C%22aburl%22%3A%22http%3A%2F%2Fsearch.spotxchange.com%2Ftrack%2Ftag%2F6409.4645%2Fimg%3Fdate%3D1567606096243%26pid%3D111853%26cid%3D116962%26provided_url%3D%24%7Bpd%7D%26detected_url%3D%24%7Bdu%7D%22%7D%7D&price=1&bi=B08ASnbj2AYw7-4e2G2L87_Fp7hzSTec0zuBYFYih1b72bzZkp5K2J4Mw66VDMzgvU99gCerqYdqARFPcdwSfHRy8Qtz4f_8jR_egjfBF57kBNJKGWBk_RwTuw0h6JljrR3QL_Y1JvvsXxjvy1SBwiOQ0sBvYbPAL6sA9LhmbGwT3TqRYkuny_ZANtrQW4FR_m43boksRNoruxbcOWUigV38Q1m6XMPz8mI10ZAm8e7Pzo&pt=imp&cpId=695088&plcId=2174679&mpId=151584&adId=4117558586&psIdNum=514931&iasMon=F&env=site&conn=unknown&videoURL=https%3A%2F%2Fvast.adsafeprotected.com%2Fvast%2Ffwjsvid%2Fst%2F255343%2F38448801%2Fskeleton.js%3FincludeFlash%3Dfalse%26originalVast%3Dhttps%3A%2F%2Fad.doubleclick.net%2Fddm%2Fpfadx%2FN1054081.2610ADOBESYSTEMSINC.%2FB23032137.253150381%3Bsz%3D0x0%3Bord%3D1732811049%3Bdc_lat%3D%3Bdc_rdid%3D%3Btag_for_child_directed_treatment%3D%3Btfua%3D%3Bdcmt%3Dtext%2Fxml%3Bdc_sdk_apis%3D%5BAPIFRAMEWORKS%5D%3Bamo%3Def_id%3D%3A%3Ad%3Bdc_omid_p%3D%5BOMIDPARTNER%5D]]></MediaFile></MediaFiles></Linear></Creative><Creative                            id=""><CompanionAds><Companion                            width="300"                            height="600"><HTMLResource><![CDATA[<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 0px; margin: 0px;" width="300" height="600" src="https://asf-tm.everesttech.net/iframe?sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&assetId=13465572&psId=f5aisANK7WNQyBFj1dVR&bt=f&q=H4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*&bundle=&env=site&conn=unknown"></iframe>]]></HTMLResource></Companion><Companion                            width="300"                            height="600"><IFrameResource><![CDATA[https://asf-tm.everesttech.net/iframe?assetId=13465572&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&psId=f5aisANK7WNQyBFj1dVR&bt=f&q=H4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*]]></IFrameResource></Companion><Companion                            width="300"                            height="250"><HTMLResource><![CDATA[<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 0px; margin: 0px;" width="300" height="250" src="https://asf-tm.everesttech.net/iframe?sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&assetId=13465573&psId=f5aisANK7WNQyBFj1dVR&bt=f&q=H4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*&bundle=&env=site&conn=unknown"></iframe>]]></HTMLResource></Companion><Companion                            width="300"                            height="250"><IFrameResource><![CDATA[https://asf-tm.everesttech.net/iframe?assetId=13465573&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&psId=f5aisANK7WNQyBFj1dVR&bt=f&q=H4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*]]></IFrameResource></Companion><Companion                            width="300"                            height="60"><HTMLResource><![CDATA[<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 0px; margin: 0px;" width="300" height="60" src="https://asf-tm.everesttech.net/iframe?sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&assetId=13465574&psId=f5aisANK7WNQyBFj1dVR&bt=f&q=H4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*&bundle=&env=site&conn=unknown"></iframe>]]></HTMLResource></Companion><Companion                            width="300"                            height="60"><IFrameResource><![CDATA[https://asf-tm.everesttech.net/iframe?assetId=13465574&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&psId=f5aisANK7WNQyBFj1dVR&bt=f&q=H4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*]]></IFrameResource></Companion><Companion                            width="728"                            height="90"><HTMLResource><![CDATA[<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 0px; margin: 0px;" width="728" height="90" src="https://asf-tm.everesttech.net/iframe?sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&assetId=13465575&psId=f5aisANK7WNQyBFj1dVR&bt=f&q=H4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*&bundle=&env=site&conn=unknown"></iframe>]]></HTMLResource></Companion><Companion                            width="728" height="90"><IFrameResource><![CDATA[https://asf-tm.everesttech.net/iframe?assetId=13465575&sessId=f6f06fd1cf1c11e9aba01b8a6c320001.1&psId=f5aisANK7WNQyBFj1dVR&bt=f&q=H4sIAAAAAAAAAG2Rv2_TQBzFcRJKUoZWIfxQhNRrxNBW2LmzY8cGpCpp0iY06a-0NHSpzudze6ljJ_aFJkxQEEM3OiDRqTMsCCSGdmHgf2DqP9AFVMTCREuQkBBv-A5P3_cZ3osdv2i_Htob-XH11jNYTn6NDE7wXotKG5634VDcYoFEvGbaZJZFfSln1aj_iPpLtN2hAY9_itw4OIilEh1Tqy8GpW7H9rKd6kq5OD-Fxr4cPxfkRImr1DM0uT3Tsdv3uwvLlaqjH558eDuUT-SLzYLf1bnZa9SURsOsE296T-hVvcfMcXBalSAYq2LCXO4Fm3dB2eXUAWcGmK-BOkBwHWXW1XGQa7UcukrNWcbTqpKVFA2MzZaWq5XbwGFbFMxQsuWNg6lN32vSdFaToKTo0JCQIoMatrHP_sT2BWAqsoV0olFb1Q3b1FHWJKqBLCODMhklaxwKKVuzoWZbiNiIIEQNbGKITB1rRJEhhEhCJ0I6-v3jSDxhq5gFubnZ7OrcYi8_3UDWg6VklLgmOW8VCMZneebgcubl5KkwgBDSVeWnkCgHD1Wsr9W3c0WLlNball9p7oRivCkybIkI74biPjfF_iSizfyAI3kvNPyv-SYUCRin70OXOu6W6227p6F7g38x8YH-c_I_tNSVjATFpeW8KENkQF1GogJ3woXBi0HL493hJ0fvRpPhlVohdX7GL_zWt8k7YdZs5W9On_Vc7HLqu9hZ8BmhtbNQnWxid4MuRHfD4QlB3g_3UaON69detZ8Wjn4B_sULa4kCAAA*]]></IFrameResource></Companion></CompanionAds></Creative></Creatives><Extensions><Extension type="SpotX"><Bid tactic="CPM" currency="USD">70.00</Bid><adid>4117558586</adid><adomain>servicenow.com</adomain><seatid>458148</seatid><Proxy>adsafeprotected.com</Proxy></Extension></Extensions></InLine></Ad></VAST>
